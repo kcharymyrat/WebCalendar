@@ -1,0 +1,236 @@
+type: edu
+custom_name: What should I do today?
+files:
+  - name: resources/application.properties
+    visible: true
+    text: |+
+      server.port=8080
+      server.error.include-message=always
+      
+      management.endpoints.web.exposure.include=*
+      management.endpoint.shutdown.enabled=true
+    
+    learner_created: false
+  - name: src/webCalendarSpring/Application.kt
+    visible: true
+    text: |+
+      package webCalendarSpring
+      
+      import org.springframework.boot.autoconfigure.SpringBootApplication
+      import org.springframework.boot.runApplication
+      
+      @SpringBootApplication
+      class WebCalenderApplication
+      
+      
+      fun main(args: Array<String>) {
+          runApplication<WebCalenderApplication>(*args)
+      }
+    
+    learner_created: false
+  - name: test/WebCalendarSpringTest.java
+    visible: false
+    text: |
+      import com.google.gson.JsonArray;
+      import com.google.gson.JsonElement;
+      import com.google.gson.JsonParser;
+      import org.hyperskill.hstest.dynamic.DynamicTest;
+      import org.hyperskill.hstest.dynamic.input.DynamicTesting;
+      import org.hyperskill.hstest.exception.outcomes.WrongAnswer;
+      import org.hyperskill.hstest.mocks.web.response.HttpResponse;
+      import org.hyperskill.hstest.stage.SpringTest;
+      import org.hyperskill.hstest.testcase.CheckResult;
+      import webCalendarSpring.ApplicationKt;
+      
+      import java.time.LocalDate;
+      import java.util.ArrayList;
+      import java.util.List;
+      import java.util.stream.Collectors;
+      
+      import static org.hyperskill.hstest.common.JsonUtils.getJson;
+      import static org.hyperskill.hstest.testing.expect.Expectation.expect;
+      import static org.hyperskill.hstest.testing.expect.json.JsonChecker.isObject;
+      
+      class EventForTest {
+          int id;
+          String event;
+          String date;
+      
+          public EventForTest(int id, String event, String date) {
+              this.id = id;
+              this.event = event;
+              this.date = date;
+          }
+      
+          public EventForTest() {
+          }
+      
+          @Override
+          public String toString() {
+              return "{ \"id\":" + "\"" + id + "\"" +
+                      ", \"event\":" + "\"" + event + "\"" +
+                      ", \"date\":" + "\"" + date + "\"" + "}";
+          }
+      
+      
+      }
+      
+      
+      public class WebCalendarSpringTest extends SpringTest {
+          private static List<EventForTest> eventsList = new ArrayList<>();
+          int count = 0;
+      
+          public WebCalendarSpringTest() {
+      
+              super(ApplicationKt.class);
+      
+          }
+      
+          public static final String todayEndPoint = "/event/today";
+      
+      
+          CheckResult testEndpoint(String url, int status) {
+              HttpResponse response = get(url).send();
+      
+              checkStatusCode(response, status);
+      
+              if (!response.getJson().isJsonArray()) {
+                  return CheckResult.wrong("Wrong object in response, expected JSON Array but was \n" +
+                          response.getContent().getClass());
+      
+              }
+      
+              System.out.println(response.getContent() + "\n " + response.getStatusCode() +
+                      "\n " + response.getRequest().getLocalUri() + "\n " + response.getRequest().getMethod());
+      
+      
+              List<String> eventsToString;
+      
+      
+              eventsToString = eventsList.stream().filter(it -> it.date.equals(LocalDate.now().toString())).map(it -> it.toString()).collect(Collectors.toList());
+      
+      
+              eventsToString.stream().forEach(System.out::println);
+      
+              String convertJsonToString = convert(eventsToString);
+              JsonArray correctJson = getJson(convertJsonToString).getAsJsonArray();
+      
+              JsonArray responseJson = getJson(response.getContent()).getAsJsonArray();
+      
+              if (responseJson.size() != correctJson.size()) {
+                  return CheckResult.wrong("Correct json array size should be " +
+                          correctJson.size() + "\n" +
+                          "Response array size is: " + responseJson.size() + "\n");
+              }
+      
+      
+              for (int i = 0; i < responseJson.size(); i++) {
+      
+      
+                  expect(responseJson.get(i).getAsJsonObject().toString()).asJson()
+                          .check(isObject()
+                                  .value("id", correctJson.get(i).getAsJsonObject().get("id").getAsInt())
+                                  .value("event", correctJson.get(i).getAsJsonObject().get("event").getAsString())
+                                  .value("date", correctJson.get(i).getAsJsonObject().get("date").getAsString()));
+      
+              }
+      
+      
+              return CheckResult.correct();
+          }
+      
+          private String convert(List<String> trs) {
+              JsonArray jsonArray = new JsonArray();
+              for (String tr : trs) {
+                  JsonElement jsonObject = JsonParser.parseString(tr);
+                  jsonArray.add(jsonObject);
+              }
+              return jsonArray.toString();
+          }
+      
+          private static void checkStatusCode(HttpResponse resp, int status) {
+              if (resp.getStatusCode() != status) {
+                  throw new WrongAnswer(
+                          resp.getRequest().getMethod() + " " +
+                                  resp.getRequest().getLocalUri() +
+                                  " should respond with status code " + status + ", " +
+                                  "responded: " + resp.getStatusCode() + "\n\n" +
+                                  "Response body:\n\n" + resp.getContent()
+                  );
+              }
+          }
+      
+      
+          @DynamicTest
+          DynamicTesting[] dynamicTests = new DynamicTesting[]{
+      
+      
+                  () -> testEndpoint(todayEndPoint, 200), //#1
+      
+          };
+      
+      
+      }
+    learner_created: false
+  - name: build.gradle
+    visible: true
+    text: |
+      import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+      
+      buildscript {
+          repositories {
+              mavenCentral()
+          }
+          dependencies {
+              classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$hs.kotlin.version"
+              classpath "org.springframework.boot:spring-boot-gradle-plugin:$hs.spring.bootVersion"
+              classpath "io.spring.gradle:dependency-management-plugin:$hs.spring.dependencyManagementVersion"
+              classpath "org.jetbrains.kotlin:kotlin-allopen:$hs.kotlin.version"
+              classpath "org.jetbrains.kotlin:kotlin-noarg:$hs.kotlin.version"
+              classpath "org.springframework.data:spring-data-commons:3.0.1"
+          }
+      }
+      
+      apply plugin: 'java'
+      apply plugin: 'kotlin'
+      apply plugin: 'org.springframework.boot'
+      apply plugin: 'io.spring.dependency-management'
+      apply plugin: "kotlin-spring"
+      apply plugin: "kotlin-jpa"
+      
+      repositories {
+          mavenCentral()
+      }
+      
+      sourceSets.main.resources.srcDirs = ["src/resources"]
+      
+      dependencies {
+          implementation 'org.springframework.boot:spring-boot-starter'
+          implementation 'org.springframework.boot:spring-boot-starter-actuator:3.1.2'
+          implementation 'org.springframework.boot:spring-boot-starter-web:3.1.2'
+          runtimeOnly 'com.h2database:h2'
+          implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+          implementation 'org.springframework.boot:spring-boot-starter-validation'
+          implementation("jakarta.validation:jakarta.validation-api:3.0.2")
+          implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
+          implementation 'org.jetbrains.kotlin:kotlin-reflect'
+          implementation 'org.springframework.data:spring-data-commons:3.0.1'
+      }
+      
+      test {
+          jvmArgs '--add-opens', 'java.base/java.lang=ALL-UNNAMED'
+      }
+      
+      tasks.withType(KotlinCompile) {
+          kotlinOptions {
+              freeCompilerArgs = ['-Xjsr305=strict']
+              jvmTarget = "$hs.kotlin.javaVersion"
+          }
+      }
+    learner_created: false
+  - name: src/webCalendarSpring/AppController.kt
+    visible: true
+    learner_created: true
+feedback_link: https://hyperskill.org/projects/442/stages/2573/implement#comment
+status: Solved
+record: 4

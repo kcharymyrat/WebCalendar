@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="WebCalendarSpringTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-03-05T06:29:25" hostname="WIN-PK97IO7J39D" time="10.413">
+  <properties/>
+  <testcase name="start" classname="WebCalendarSpringTest" time="10.413"/>
+  <system-out><![CDATA[{date=2024-01-01, event=New Year's Day}
+{date=2023-04-07, event=Good Friday}
+{date=2023-07-06, event=Jan Hus Day}
+{date=2024-02-24, event=Perfect Day}
+{date=2024-03-01, event=Another Good Day}
+?[1;31m
+Start test 1?[0m
+?[0;34m
+?[0m?[0;34m  .   ____          _            __ _ _
+?[0m?[0;34m /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+?[0m?[0;34m( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+?[0m?[0;34m \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+?[0m?[0;34m  '  |____| .__|_| |_|_| |_\__, | / / / /
+?[0m?[0;34m =========|_|==============|___/=/_/_/_/
+?[0m?[0;34m :: Spring Boot ::                (v3.0.2)
+?[0m?[0;34m
+?[0m?[0;34m2024-03-05T11:29:26.949+05:00  INFO 17168 --- [    Test worker] webCalendarSpring.ApplicationKt          : Starting ApplicationKt using Java 17.0.5 with PID 17168 (started by User in D:\JetBrainsWork\Web Calendar (Kotlin)\Web Calendar (Kotlin)\task)
+?[0m?[0;34m2024-03-05T11:29:26.958+05:00  INFO 17168 --- [    Test worker] webCalendarSpring.ApplicationKt          : No active profile set, falling back to 1 default profile: "default"
+?[0m?[0;34m2024-03-05T11:29:28.622+05:00  INFO 17168 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+?[0m?[0;34m2024-03-05T11:29:28.697+05:00  INFO 17168 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interfaces.
+?[0m?[0;34m2024-03-05T11:29:29.532+05:00  INFO 17168 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+?[0m?[0;34m2024-03-05T11:29:29.547+05:00  INFO 17168 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+?[0m?[0;34m2024-03-05T11:29:29.549+05:00  INFO 17168 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+?[0m?[0;34m2024-03-05T11:29:29.680+05:00  INFO 17168 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+?[0m?[0;34m2024-03-05T11:29:29.684+05:00  INFO 17168 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2636 ms
+?[0m?[0;34m2024-03-05T11:29:30.049+05:00  INFO 17168 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+?[0m?[0;34m2024-03-05T11:29:30.391+05:00  INFO 17168 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:e0cf52c8-79cb-4159-8cf0-a2b30bd899f2 user=SA
+?[0m?[0;34m2024-03-05T11:29:30.395+05:00  INFO 17168 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+?[0m?[0;34m2024-03-05T11:29:30.464+05:00  INFO 17168 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+?[0m?[0;34m2024-03-05T11:29:30.542+05:00  INFO 17168 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+?[0m?[0;34m2024-03-05T11:29:30.852+05:00  WARN 17168 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+?[0m?[0;34m2024-03-05T11:29:31.122+05:00  INFO 17168 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+?[0m?[0;34m2024-03-05T11:29:32.015+05:00  INFO 17168 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+?[0m?[0;34m2024-03-05T11:29:32.029+05:00  INFO 17168 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+?[0m?[0;34m2024-03-05T11:29:33.488+05:00  WARN 17168 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+?[0m?[0;34m2024-03-05T11:29:34.169+05:00  INFO 17168 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+?[0m?[0;34m2024-03-05T11:29:34.291+05:00  INFO 17168 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+?[0m?[0;34m2024-03-05T11:29:34.315+05:00  INFO 17168 --- [    Test worker] webCalendarSpring.ApplicationKt          : Started ApplicationKt in 7.996 seconds (process running for 9.302)
+?[0;34m2024-03-05T11:29:34.784+05:00  INFO 17168 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+?[0m?[0;34m2024-03-05T11:29:34.785+05:00  INFO 17168 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+?[0m?[0;34m2024-03-05T11:29:34.788+05:00  INFO 17168 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+?[0m?[0;34meventRepository.findAll() = []
+?[0m?[0;34mtodayEventEntityList = []
+?[0m?[0;34m[]
+?[0m?[0;34m 200
+?[0m?[0;34m /event/today
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 2?[0m
+?[0;34meventEntityList = []
+?[1;31m
+Start test 3?[0m
+?[0;34meventEntityList = []
+?[0;34m
+?[0m?[0;34m 204
+?[0m?[0;34m /event?start_time=2023-09-05&end_time=2024-03-11
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 4?[0m
+?[0;34meventEntity = webCalendarSpring.EventEntity@343c9ce7
+?[0;34m{"message":"The event has been added!","event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2024-03-05","event":"Today is a good Day "}
+?[0m?[1;31m
+Start test 5?[0m
+?[0;34meventEntity = webCalendarSpring.EventEntity@2387064
+?[0;34m{"message":"The event has been added!","event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2024-03-05","event":"Today is a good Day "}
+?[0m?[1;31m
+Start test 6?[0m
+?[0;34meventEntity = webCalendarSpring.EventEntity@39e82c15
+?[0;34m{"message":"The event has been added!","event":"Good Friday","date":"2023-04-07"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2023-04-07","event":"Good Friday"}
+?[0m?[1;31m
+Start test 7?[0m
+?[0;34meventRepository.findAll() = [webCalendarSpring.EventEntity@630ac10c, webCalendarSpring.EventEntity@357f315d, webCalendarSpring.EventEntity@73a7dbbd]
+?[0m?[0;34mtodayEventEntityList = [webCalendarSpring.EventEntity@630ac10c, webCalendarSpring.EventEntity@357f315d]
+?[0;34m[{"id":1,"event":"Today is a good Day ","date":"2024-03-05"},{"id":2,"event":"Today is a good Day ","date":"2024-03-05"}]
+?[0m?[0;34m 200
+?[0m?[0;34m /event/today
+?[0m?[0;34m GET
+?[0m?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"2", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[1;31m
+Start test 8?[0m
+?[0;34meventEntityList = [webCalendarSpring.EventEntity@31c41202, webCalendarSpring.EventEntity@33f5d264, webCalendarSpring.EventEntity@47646b0e]
+?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"2", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"3", "event":"Good Friday", "date":"2023-04-07"}
+?[0m?[1;31m
+Start test 9?[0m
+?[0m?[0;34meventEntityList = [webCalendarSpring.EventEntity@9bcbfec, webCalendarSpring.EventEntity@2a31b13c, webCalendarSpring.EventEntity@4c3baf64]
+?[0;34m
+?[0m?[0;34m 204
+?[0m?[0;34m /event?start_time=2024-02-09&end_time=2024-03-11
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 10?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2024-03-05","event":""}
+?[0m?[1;31m
+Start test 11?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2024-03-05","event":"     "}
+?[0m?[1;31m
+Start test 12?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2024-03-05"}
+?[0m?[1;31m
+Start test 13?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"event":"New Year Party"}
+?[0m?[1;31m
+Start test 14?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"event":""}
+?[0m?[1;31m
+Start test 15?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"","event":""}
+?[0m?[1;31m
+Start test 16?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"event":"","date":"    "}
+?[0m?[1;31m
+Start test 17?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"event":"New Year Party","date":"    "}
+?[0m?[1;31m
+Start test 18?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"    ","event":"New Year Party"}
+?[0m?[1;31m
+Start test 19?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"event":"New Year Party","date":""}
+?[0m?[1;31m
+Start test 20?[0m
+?[0;34m 
+?[0m?[0;34m400
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"","event":"New Year Party"}
+?[0m?[1;31m
+Start test 21?[0m
+?[0m?[0;34meventRepository.findAll() = [webCalendarSpring.EventEntity@5421586a, webCalendarSpring.EventEntity@103bb481, webCalendarSpring.EventEntity@1a3ed4b1]
+?[0m?[0;34mtodayEventEntityList = [webCalendarSpring.EventEntity@5421586a, webCalendarSpring.EventEntity@103bb481]
+?[0;34m[{"id":1,"event":"Today is a good Day ","date":"2024-03-05"},{"id":2,"event":"Today is a good Day ","date":"2024-03-05"}]
+?[0m?[0;34m 200
+?[0m?[0;34m /event/today
+?[0m?[0;34m GET
+?[0m?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"2", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[1;31m
+Start test 22?[0m
+?[0;34meventEntityList = [webCalendarSpring.EventEntity@46a07f49, webCalendarSpring.EventEntity@5e2f4f23, webCalendarSpring.EventEntity@37f8fb5]
+?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"2", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"3", "event":"Good Friday", "date":"2023-04-07"}
+?[0m?[1;31m
+Start test 23?[0m
+?[0;34meventEntityList = [webCalendarSpring.EventEntity@79c5ae92, webCalendarSpring.EventEntity@3e8cdaf7, webCalendarSpring.EventEntity@60bce153]
+?[0;34m
+?[0m?[0;34m 204
+?[0m?[0;34m /event?start_time=2023-10-04&end_time=2024-03-11
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 24?[0m
+?[0m?[0;34meventEntityList = [webCalendarSpring.EventEntity@1bf2ddb2, webCalendarSpring.EventEntity@35b9e6b0, webCalendarSpring.EventEntity@790d5963]
+?[0;34m
+?[0m?[0;34m 204
+?[0m?[0;34m /event?start_time=2024-02-25&end_time=2024-05-19
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 25?[0m
+?[0m?[0;34meventEntityList = [webCalendarSpring.EventEntity@7e060a82, webCalendarSpring.EventEntity@6269da3a, webCalendarSpring.EventEntity@426e3e90]
+?[0;34m
+?[0m?[0;34m 204
+?[0m?[0;34m /event?start_time=2024-02-27&end_time=2024-03-11
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 26?[0m
+?[0;34m{"id":1,"event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/1
+?[0m?[0;34m GET
+?[0m?[0;34m 
+?[0m?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[1;31m
+Start test 27?[0m
+?[0;34m{"id":2,"event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/2
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{ "id":"2", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[1;31m
+Start test 28?[0m
+?[0;34m{"message":"The event doesn't exist!"} 
+?[0m?[0;34m404
+?[0m?[0;34m /event/2
+?[0m?[0;34m GET
+?[0m?[0;34m 
+?[0m?[1;31m
+Start test 29?[0m
+?[0;34m{"id":1,"event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/1
+?[0m?[0;34m GET
+?[0m?[0;34m 
+?[0m?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[1;31m
+Start test 30?[0m
+?[0m?[0;34meventRepository.findAll() = [webCalendarSpring.EventEntity@6382177, webCalendarSpring.EventEntity@1e197fd]
+?[0m?[0;34mtodayEventEntityList = [webCalendarSpring.EventEntity@6382177]
+?[0;34m[{"id":1,"event":"Today is a good Day ","date":"2024-03-05"}]
+?[0m?[0;34m 200
+?[0m?[0;34m /event/today
+?[0m?[0;34m GET
+?[0m?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[1;31m
+Start test 31?[0m
+?[0m?[0;34meventEntityList = [webCalendarSpring.EventEntity@2fbf6795, webCalendarSpring.EventEntity@63b667]
+?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"3", "event":"Good Friday", "date":"2023-04-07"}
+?[0m?[1;31m
+Start test 32?[0m
+?[0;34m{"id":1,"event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/1
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{ "id":"1", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[1;31m
+Start test 33?[0m
+?[0;34m{"message":"The event doesn't exist!"} 
+?[0m?[0;34m404
+?[0m?[0;34m /event/1
+?[0m?[0;34m GET
+?[0m?[0;34m 
+?[0m?[1;31m
+Start test 34?[0m
+?[0;34m{"id":3,"event":"Good Friday","date":"2023-04-07"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/3
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[1;31m
+Start test 35?[0m
+?[0m?[0;34meventEntityList = []
+?[1;31m
+Start test 36?[0m
+?[0m?[0;34meventRepository.findAll() = []
+?[0m?[0;34mtodayEventEntityList = []
+?[0;34m[]
+?[0m?[0;34m 200
+?[0m?[0;34m /event/today
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 37?[0m
+?[0m?[0;34meventEntity = webCalendarSpring.EventEntity@6b0a1281
+?[0;34m{"message":"The event has been added!","event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2024-03-05","event":"Today is a good Day "}
+?[0m?[1;31m
+Start test 38?[0m
+?[0m?[0;34meventEntity = webCalendarSpring.EventEntity@45da6e30
+?[0;34m{"message":"The event has been added!","event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2024-03-05","event":"Today is a good Day "}
+?[0m?[1;31m
+Start test 39?[0m
+?[0m?[0;34meventRepository.findAll() = [webCalendarSpring.EventEntity@3daff63d, webCalendarSpring.EventEntity@68e31b48]
+?[0m?[0;34mtodayEventEntityList = [webCalendarSpring.EventEntity@3daff63d, webCalendarSpring.EventEntity@68e31b48]
+?[0;34m[{"id":4,"event":"Today is a good Day ","date":"2024-03-05"},{"id":5,"event":"Today is a good Day ","date":"2024-03-05"}]
+?[0m?[0;34m 200
+?[0m?[0;34m /event/today
+?[0m?[0;34m GET
+?[0m?[0;34m{ "id":"4", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"5", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[1;31m
+Start test 40?[0m
+?[0m?[0;34meventEntity = webCalendarSpring.EventEntity@6e1eb06a
+?[0;34m{"message":"The event has been added!","event":"Jan Hus Day","date":"2023-07-06"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2023-07-06","event":"Jan Hus Day"}
+?[0m?[1;31m
+Start test 41?[0m
+?[0m?[0;34meventEntity = webCalendarSpring.EventEntity@380c0e95
+?[0;34m{"message":"The event has been added!","event":"Jan Hus Day","date":"2023-07-06"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2023-07-06","event":"Jan Hus Day"}
+?[0m?[1;31m
+Start test 42?[0m
+?[0m?[0;34meventEntity = webCalendarSpring.EventEntity@465a53b3
+?[0;34m{"message":"The event has been added!","event":"Jan Hus Day","date":"2023-07-06"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2023-07-06","event":"Jan Hus Day"}
+?[0m?[1;31m
+Start test 43?[0m
+?[0m?[0;34meventEntity = webCalendarSpring.EventEntity@3ac280ca
+?[0;34m{"message":"The event has been added!","event":"Good Friday","date":"2023-04-07"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2023-04-07","event":"Good Friday"}
+?[0m?[1;31m
+Start test 44?[0m
+?[0m?[0;34meventEntity = webCalendarSpring.EventEntity@30f0036b
+?[0;34m{"message":"The event has been added!","event":"Good Friday","date":"2023-04-07"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2023-04-07","event":"Good Friday"}
+?[0m?[1;31m
+Start test 45?[0m
+?[0m?[0;34meventEntity = webCalendarSpring.EventEntity@9107dfa
+?[0;34m{"message":"The event has been added!","event":"New Year's Day","date":"2024-01-01"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event
+?[0m?[0;34m POST
+?[0m?[0;34m {"date":"2024-01-01","event":"New Year\u0027s Day"}
+?[0m?[1;31m
+Start test 46?[0m
+?[0m?[0;34meventEntityList = [webCalendarSpring.EventEntity@3f2afd7f, webCalendarSpring.EventEntity@52ec2ee2, webCalendarSpring.EventEntity@2c8b01ef, webCalendarSpring.EventEntity@515f4861, webCalendarSpring.EventEntity@39f68630, webCalendarSpring.EventEntity@a5e24d2, webCalendarSpring.EventEntity@7eaed80f, webCalendarSpring.EventEntity@55198bfb]
+?[0;34m{ "id":"4", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"5", "event":"Today is a good Day ", "date":"2024-03-05"}
+?[0m?[0;34m{ "id":"6", "event":"Jan Hus Day", "date":"2023-07-06"}
+?[0m?[0;34m{ "id":"7", "event":"Jan Hus Day", "date":"2023-07-06"}
+?[0m?[0;34m{ "id":"8", "event":"Jan Hus Day", "date":"2023-07-06"}
+?[0m?[0;34m{ "id":"9", "event":"Good Friday", "date":"2023-04-07"}
+?[0m?[0;34m{ "id":"10", "event":"Good Friday", "date":"2023-04-07"}
+?[0m?[0;34m{ "id":"11", "event":"New Year's Day", "date":"2024-01-01"}
+?[0m?[1;31m
+Start test 47?[0m
+?[0m?[0;34meventEntityList = [webCalendarSpring.EventEntity@63fe21dc, webCalendarSpring.EventEntity@4770bc5e, webCalendarSpring.EventEntity@6d3b8e12, webCalendarSpring.EventEntity@780ff7b4, webCalendarSpring.EventEntity@6a6dc9a8, webCalendarSpring.EventEntity@283d0af7, webCalendarSpring.EventEntity@19475afc, webCalendarSpring.EventEntity@1ef2bc37]
+?[0;34m
+?[0m?[0;34m 204
+?[0m?[0;34m /event?start_time=2023-11-21&end_time=2024-03-12
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 48?[0m
+?[0m?[0;34meventEntityList = [webCalendarSpring.EventEntity@39291fd0, webCalendarSpring.EventEntity@690a6d9c, webCalendarSpring.EventEntity@4c0732f, webCalendarSpring.EventEntity@7d5e4c9f, webCalendarSpring.EventEntity@c781b7b, webCalendarSpring.EventEntity@3624f1e5, webCalendarSpring.EventEntity@317aa505, webCalendarSpring.EventEntity@3e4f2d01]
+?[0;34m
+?[0m?[0;34m 204
+?[0m?[0;34m /event?start_time=2024-02-28&end_time=2024-04-16
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 49?[0m
+?[0m?[0;34meventEntityList = [webCalendarSpring.EventEntity@80c3473, webCalendarSpring.EventEntity@48dbd669, webCalendarSpring.EventEntity@ff11fe9, webCalendarSpring.EventEntity@6df252a4, webCalendarSpring.EventEntity@4b44cc5, webCalendarSpring.EventEntity@124abaa4, webCalendarSpring.EventEntity@1543f153, webCalendarSpring.EventEntity@6a5bf62d]
+?[0;34m
+?[0m?[0;34m 204
+?[0m?[0;34m /event?start_time=2024-02-28&end_time=2024-03-21
+?[0m?[0;34m GET
+?[0m?[1;31m
+Start test 50?[0m
+?[0;34m{"message":"The event doesn't exist!"} 
+?[0m?[0;34m404
+?[0m?[0;34m /event/1
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[1;31m
+Start test 51?[0m
+?[0;34m{"id":4,"event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/4
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{"id":5,"event":"Today is a good Day ","date":"2024-03-05"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/5
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{"id":6,"event":"Jan Hus Day","date":"2023-07-06"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/6
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{"id":7,"event":"Jan Hus Day","date":"2023-07-06"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/7
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{"id":8,"event":"Jan Hus Day","date":"2023-07-06"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/8
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{"id":9,"event":"Good Friday","date":"2023-04-07"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/9
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{"id":10,"event":"Good Friday","date":"2023-04-07"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/10
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[0;34m{"id":11,"event":"New Year's Day","date":"2024-01-01"} 
+?[0m?[0;34m200
+?[0m?[0;34m /event/11
+?[0m?[0;34m DELETE
+?[0m?[0;34m 
+?[0m?[1;31m
+Start test 52?[0m
+?[0m?[0;34meventEntityList = []
+?[1;31m
+Start test 53?[0m
+?[0;34meventRepository.findAll() = []
+?[0m?[0;34mtodayEventEntityList = []
+?[0;34m[]
+?[0m?[0;34m 200
+?[0m?[0;34m /event/today
+?[0m?[0;34m GET
+?[0m]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
